@@ -4,7 +4,7 @@
 
 Spring Boot 기반 CRUD 기능이 포함된 나만의 블로그 만들기 프로젝트 입니다.
 
-## API
+## API 설계
 
 | 기능             | Method | URL             | 반환          |
 | ---------------- | ------ | --------------- | ------------- |
@@ -13,6 +13,15 @@ Spring Boot 기반 CRUD 기능이 포함된 나만의 블로그 만들기 프로
 | 게시글 작성      | POST   | /api/posts      | Post          |
 | 게시글 수정      | PUT    | /api/posts/{id} | id            |
 | 게시글 삭제      | DELETE | /api/posts/{id} | id            |
+  
+## 와이어 프레임
+### 메인 페이지
+![image](https://user-images.githubusercontent.com/53491653/111947356-a5b13300-8b20-11eb-9f31-419ed4062958.png)
+### 작성 페이지(modal)
+![image](https://user-images.githubusercontent.com/53491653/111947393-bc578a00-8b20-11eb-95ca-eb9a29304623.png)
+### 특정 게시글 조회 페이지(modal)
+![image](https://user-images.githubusercontent.com/53491653/111947420-cbd6d300-8b20-11eb-99a0-9c164ceccd23.png)
+
 
 ## 3계층 설계
 
