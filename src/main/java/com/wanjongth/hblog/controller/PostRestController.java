@@ -3,11 +3,9 @@ package com.wanjongth.hblog.controller;
 import com.wanjongth.hblog.models.Post;
 import com.wanjongth.hblog.models.PostRepository;
 import com.wanjongth.hblog.models.PostRequestDto;
+import com.wanjongth.hblog.service.PostService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,6 +13,7 @@ import java.util.List;
 @RestController // JSON으로 데이터 주고받기 선언
 public class PostRestController {
 
+    private final PostService postService;
     private final PostRepository postRepository;
 
     // 생성
@@ -30,6 +29,13 @@ public class PostRestController {
     public List<Post> getPosts() {
 
         return postRepository.findAll();
+    }
+
+    // update
+    @PutMapping("/api/posts/{id}")
+    public Long updatePost(@PathVariable Long id, @RequestBody PostRequestDto requestDto) {
+        postService.update(id, requestDto);
+        return id;
     }
 
 

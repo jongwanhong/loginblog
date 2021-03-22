@@ -37,4 +37,11 @@ public class Post extends Timestamped{ // 생성, 수정 시간을 자동으로 
         this.author = requestDto.getAuthor();
         this.contents = requestDto.getContents();
     }
+
+    // 업데이트 생성자
+    public void update(PostRequestDto requestDto) {
+        this.title = requestDto.getTitle();
+        this.author = requestDto.getAuthor();
+        this.contents = requestDto.getContents();
+    }
 }
