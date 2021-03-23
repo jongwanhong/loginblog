@@ -21,14 +21,14 @@ img {
     z-index: -1;
     top: 0px;
     width: 100%;
-    height: 150px;
+    height: 200px;
     background-color: rgb(255, 221, 214);
 }
 
 .background-body {
     position: fixed;
     z-index: -1;
-    top: 150px;
+    top: 200px;
     height: 100%;
     width: 100%;
     background-color: rgb(255, 255, 210);
@@ -39,7 +39,7 @@ img {
 }
 
 .header h2 {
-    /*font-family: 'Noto Sans KR', sans-serif;*/
+    font-family: 'Noto Sans KR', sans-serif;
     height: 33px;
     font-size: 42px;
     font-weight: 500;
@@ -51,13 +51,18 @@ img {
     color: #ffffff;
 }
 
+.header p {
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+    color: #ffffff;
+}
+
 .header .btn {
-    display: flex;
-    justify-content: space-between;
+    float:right;
 }
 
 textarea.field {
-    width: 502px !important;
+    width: 466px !important;
     height: 146px;
     border-radius: 5px;
     background-color: #ffffff;
@@ -81,17 +86,19 @@ textarea.field::placeholder {
 }
 
 .card {
-    display: flex;
-    justify-content: center;
-    width: 60%;
+    top: 50px;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    width: 100%;
     border-radius: 5px;
     background-color: #ffffff;
-    margin: 30px auto;
+    margin: 30px 0;
+    flex-grow:1;
 }
 
 .card .metadata {
     position: relative;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     font-family: 'Spoqa Han Sans';
     font-size: 11px;
@@ -111,6 +118,11 @@ textarea.field::placeholder {
 .card .metadata .date {
     margin-left:20px;
     text-align: right;
+}
+.card .title{
+    margin-left: 20px;
+    font-family: 'Spoqa Han Sans';
+    color: #adb5bd;
 }
 
 
@@ -132,6 +144,7 @@ textarea.field::placeholder {
     border-bottom: 1px solid #212529;
     width: 100%;
     font-family: 'Spoqa Han Sans';
+    white-space:pre;
 }
 
 .footer {

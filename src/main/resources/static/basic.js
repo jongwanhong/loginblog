@@ -54,14 +54,14 @@ function showEdits(id) {
     $(`#${id}-edit`).hide();
 }
 
-function hideEdits(id) {
-    $(`#${id}-editarea`).hide();
-    $(`#${id}-submit`).hide();
-    $(`#${id}-delete`).hide();
-
-    $(`#${id}-contents`).show();
-    $(`#${id}-edit`).show();
-}
+// function hideEdits(id) {
+//     $(`#${id}-editarea`).hide();
+//     $(`#${id}-submit`).hide();
+//     $(`#${id}-delete`).hide();
+//
+//     $(`#${id}-contents`).show();
+//     $(`#${id}-edit`).show();
+// }
 
 $(document).ready(function () {
     // HTML 문서를 로드할 때마다 실행합니다.
@@ -145,9 +145,9 @@ function addHTML(id, title, author, contents, modifiedAt) {
                         </div>
                     </div>
                     <!-- 모달 포스트 -->
-                     <div class="modal fade" id="${id}" role="dialog" aria-labelledby="introHeader" aria-hidden="true"
+                     <div class="modal fade" id="${id}" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"
                          tabindex="-1">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                         <div id="${id}-title" class="title">
@@ -232,8 +232,8 @@ function writePost() {
         contentType: "application/json", // JSON 형식으로 전달함을 알리기
         data: JSON.stringify(data),//string 밖에 못주고 받으므로 json을 string 형태로 보냄
         success: function (response) {
-            alert('게시글 성공적으로 작성되었습니다.');
-            window.location.reload(); //새로고침
+            alert('게시글이 성공적으로 작성되었습니다.');
+            window.location.reload(); //새로고침이
         }
     });
 }
@@ -258,7 +258,7 @@ function submitEdit(id) {
         contentType: "application/json",
         data: JSON.stringify(data),
         success: function (response) {
-            alert('메시지 변경에 성공하였습니다.');
+            alert('게시글 변경에 성공하였습니다.');
             window.location.reload();
         }
     });
@@ -270,7 +270,7 @@ function deleteOne(id) {
         type: "DELETE",
         url: `/api/posts/${id}`,
         success: function (response) {
-            alert('메시지 삭제에 성공하였습니다.');
+            alert('게시글 삭제에 성공하였습니다.');
             window.location.reload();
         }
     })
