@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="basic.js"></script>
+    <title>항해99 블로그</title>
+</head>
+
+<body>
+<div class="background-header">
+
+</div>
+<div class="background-body">
+
+</div>
+<div class="wrap">
+    <div class="header">
+        <h2>나만의 항해99 블로그</h2>
+        <!--모달 버튼-->
+        <button data-toggle="modal" data-target="#modal-write">
+            글쓰기
+        </button>
+    </div>
+    <!--글쓰기 모달-->
+    <div class="modal fade" id="modal-write" role="dialog" aria-labelledby="introHeader" aria-hidden="true"
+         tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="title" placeholder="제목을 입력해주세요">
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="author" placeholder="이름을 입력해주세요">
+                </div>
+                <div class="modal-body">
+                    <textarea class="field" placeholder="내용을 입력해주세요" name="contents" id="contents" cols="30"
+                              rows="10"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger">작성하기</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cards-box" data-toggle="modal" data-target="#modal-post">
+        <div class="card">
+            <!-- date/username 영역 -->
+            <div class="metadata">
+                <div id="1-author" class="author">
+                    author
+                </div>
+                <div class="date">
+                    October 10, 2020
+                </div>
+            </div>
+            <div class="footer">
+                <img id="1-edit" onclick="editPost('1')" class="icon-start-edit" src="images/edit.png"
+                     alt="">
+                <img id="1-delete" onclick="deleteOne('1')" class="icon-delete" src="images/delete.png"
+                     alt="">
+                <img id="1-submit" onclick="submitEdit('1')" class="icon-end-edit" src="images/done.png"
+                     alt="">
+            </div>
+        </div>
+        <!-- 모달 포스트 -->
+        <div class="modal fade" id="modal-post" role="dialog" aria-labelledby="introHeader" aria-hidden="true"
+             tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                            <div id="1-title" class="title">
+                                title
+                            </div>
+                            <div class="metadata">
+                                <div id="1-author-post" class="author">
+                                    author
+                                </div>
+                                <div class="date">
+                                    October 10, 2020
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-body">
+                        <!-- 아래 영역-->
+                        <div class="footer card-body text-secondary">
+                            <div id="1-contents" class="contents">
+                                contents
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
