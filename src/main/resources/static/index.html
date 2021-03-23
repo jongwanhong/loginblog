@@ -42,22 +42,22 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="title" placeholder="제목을 입력해주세요">
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="author" placeholder="이름을 입력해주세요">
+                    <textarea class="form-control mb-2 mr-sm-2" name="title" id="title" placeholder="제목을 입력해주세요"></textarea>
+                    <textarea class="form-control mb-2 mr-sm-2" name="author" id="author" placeholder="이름을 입력해주세요"></textarea>
                 </div>
                 <div class="modal-body">
                     <textarea class="field" placeholder="내용을 입력해주세요" name="contents" id="contents" cols="30"
                               rows="10"></textarea>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-danger">작성하기</button>
+                    <button class="btn btn-danger" onclick = "writePost()">작성하기</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="cards-box" data-toggle="modal" data-target="#modal-post">
+    <div id="cards-box">
         <div class="card">
             <!-- date/username 영역 -->
             <div class="metadata">
@@ -66,6 +66,18 @@
                 </div>
                 <div class="date">
                     October 10, 2020
+                </div>
+            </div>
+            <div id="1-title" class="title" data-toggle="modal" data-target="#modal-post">
+                title
+            </div>
+            <!-- contents 조회/수정 영역-->
+            <div class="contents">
+                <div id="1-contents" class="text">
+                    dsafnkalfklewakflekelafkleajfkleafkldsankflenwaklfnekwlafneklwanfkelawnfkelanfkleanfklew
+                </div>
+                <div id="1-editarea" class="edit">
+                    <textarea id="1-textarea" class="te-edit" name="" id="" cols="30" rows="5"></textarea>
                 </div>
             </div>
             <div class="footer">
@@ -78,37 +90,37 @@
             </div>
         </div>
         <!-- 모달 포스트 -->
-        <div class="modal fade" id="modal-post" role="dialog" aria-labelledby="introHeader" aria-hidden="true"
-             tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                            <div id="1-title" class="title">
-                                title
-                            </div>
-                            <div class="metadata">
-                                <div id="1-author-post" class="author">
-                                    author
-                                </div>
-                                <div class="date">
-                                    October 10, 2020
-                                </div>
-                            </div>
-                    </div>
-                    <div class="modal-body">
-                        <!-- 아래 영역-->
-                        <div class="footer card-body text-secondary">
-                            <div id="1-contents" class="contents">
-                                contents
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--        <div class="modal fade" id="modal-post" role="dialog" aria-labelledby="introHeader" aria-hidden="true"-->
+<!--             tabindex="-1">-->
+<!--            <div class="modal-dialog">-->
+<!--                <div class="modal-content">-->
+<!--                    <div class="modal-header">-->
+<!--                            <div id="1-title-post" class="title">-->
+<!--                                title-->
+<!--                            </div>-->
+<!--                            <div class="metadata">-->
+<!--                                <div id="1-author-post" class="author">-->
+<!--                                    author-->
+<!--                                </div>-->
+<!--                                <div class="date">-->
+<!--                                    October 10, 2020-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                    </div>-->
+<!--                    <div class="modal-body">-->
+<!--                        &lt;!&ndash; 아래 영역&ndash;&gt;-->
+<!--                        <div class="footer card-body text-secondary">-->
+<!--                            <div id="1-contents" class="contents">-->
+<!--                                contents-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="modal-footer">-->
+<!--                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </div>
 </body>

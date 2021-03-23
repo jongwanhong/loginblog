@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Getter
 @Entity//꼭 ㅜㅜ 넣어주자 - 테이블과 연계됨을 스프링에게 알려줌
 public class Post extends Timestamped{ // 생성, 수정 시간을 자동으로 만듦
-    // 변수 선
-    // ID 자동 생성 및 증가
+    // 변수 선언
+    // ID 자동 생성 및 증
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
@@ -25,7 +25,7 @@ public class Post extends Timestamped{ // 생성, 수정 시간을 자동으로 
     private String contents;
 
     // 생성자
-    public Post(String title, String author,String contents) {
+    public Post(String title, String author, String contents) {
         this.title = title;
         this.author = author;
         this.contents = contents;
