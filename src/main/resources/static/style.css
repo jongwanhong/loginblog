@@ -125,7 +125,6 @@ textarea.field::placeholder {
     color: #adb5bd;
 }
 
-
 .contents {
     padding: 0px 23px;
     word-wrap: break-word;
@@ -144,7 +143,6 @@ textarea.field::placeholder {
     border-bottom: 1px solid #212529;
     width: 100%;
     font-family: 'Spoqa Han Sans';
-    white-space:pre;
 }
 
 .footer {
@@ -183,6 +181,7 @@ textarea.field::placeholder {
     height: 18px;
 }
 
-#cards-box {
-    margin-top: 12px;
+.contents-col{
+    font-family: 'Spoqa Han Sans';
+    color: #adb5bd;
 }

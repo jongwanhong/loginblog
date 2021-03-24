@@ -77,7 +77,7 @@ function getMessages() {
         type: 'GET',
         url: '/api/posts',
         success: function (response) {
-            for (let i = 0; i < response.length; i++) {
+            for (let i = response.length-1; i > -1; i--) {
                 let post = response[i];
                 let id = post.id;
                 let title = post.title;
@@ -90,27 +90,6 @@ function getMessages() {
 
     })
 }
-
-function getMessages2() {
-    // 2. 포스트 목록을 불러와서 HTML로 붙입니다.
-    $.ajax({
-        type: 'GET',
-        url: '/api/posts',
-        success: function (response) {
-            for (let i = 0; i < response.length; i++) {
-                let post = response[i];
-                let id = post.id;
-                let title = post.title;
-                let author = post.author;
-                let contents = post.contents;
-                let modifiedAt = post.modifiedAt;
-                addHTML(id, title, author, contents, modifiedAt)
-            }
-        }
-
-    })
-}
-
 
 // 메모 하나를 HTML로 만들어서 body 태그 내 원하는 곳에 붙입니다.
 function addHTML(id, title, author, contents, modifiedAt) {
@@ -125,7 +104,7 @@ function addHTML(id, title, author, contents, modifiedAt) {
                                 ${modifiedAt}
                             </div>
                         </div>
-                        <div id="${id}-title" class="title" data-toggle="modal" data-target="#${id}">
+                        <div id="${id}-title" class="title" data-toggle="modal" data-target="#${id}" style="cursor:pointer;">
                             ${title}
                         </div>
                         <!-- 수정 영역 -->
@@ -148,7 +127,7 @@ function addHTML(id, title, author, contents, modifiedAt) {
                      <div class="modal fade" id="${id}" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"
                          tabindex="-1">
                         <div class="modal-dialog" role="document">
-                            <div class="modal-content">
+                            <div class="modal-content contents-col">
                                 <div class="modal-header">
                                         <div id="${id}-title" class="title">
                                             ${title}
