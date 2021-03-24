@@ -98,6 +98,7 @@ id="${id}"
 
 ### 메인 페이지
 
+![image](https://user-images.githubusercontent.com/53491653/112273956-45a5c280-8cc1-11eb-9cf9-79b5ef516d49.png)
 
 
 여기서 게시글 우측 하단에 있는 연필 모양 아이콘을 누르면 PUT을 수행하게 되고
@@ -106,11 +107,15 @@ id="${id}"
 
 ### 작성 페이지(modal)
 
+![image](https://user-images.githubusercontent.com/53491653/112273988-4f2f2a80-8cc1-11eb-9d61-0f653c6f2239.png)
 
 
 ### 해당 게시글 조회 페이지(modal)
 
+![image](https://user-images.githubusercontent.com/53491653/112274018-59512900-8cc1-11eb-8abe-c465a63ed935.png)
 
 
 ### 수정(Show & hide)
+
+![image](https://user-images.githubusercontent.com/53491653/112274049-61a96400-8cc1-11eb-98de-0bdc401eb085.png)
 
