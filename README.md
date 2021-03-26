@@ -40,7 +40,7 @@ Spring Boot 기반 CRUD 기능이 포함된 로그인 기능이 없는 나만의
 - PostRequestDto : 게시글 수정 / 등록
 
 ## 구조
-![image](https://user-images.githubusercontent.com/53491653/112459454-31d18d80-8da1-11eb-9b5c-dd6afb50cb1f.png)
+![image](https://user-images.githubusercontent.com/53491653/112590454-356b2000-8e46-11eb-9a0d-3f8339a77bce.png)
 
 
 
