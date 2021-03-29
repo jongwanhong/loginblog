@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- og tag-->
+    <meta property="og:title" content="spring blog">
+    <meta property="og:description" content="봄이니까 spring blog!">
+    <meta property="og:image" content="images/og_blog.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="basic.js"></script>
+    <title>항해99 블로그</title>
+</head>
+
+<body>
+<div class="background-header">
+
+</div>
+<div class="background-body">
+
+</div>
+<div class="wrap">
+    <div class="header">
+        <h2>봄이니까 Spring 블로그</h2>
+        <p>
+            글쓰기 버튼을 눌러 게시글을 등록해주세요.<br>
+            게시글의 제목을 누르면 내용을 볼 수 있습니다.
+        </p>
+        <!--모달 버튼-->
+        <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#modal-write">
+            글쓰기
+        </button>
+    </div>
+    <!--글쓰기 모달-->
+    <div class="modal fade" id="modal-write" role="dialog" aria-labelledby="introHeader" aria-hidden="true"
+         tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <textarea class="form-control mb-2 mr-sm-2" name="title" id="title" placeholder="제목을 입력해주세요"></textarea>
+                    <textarea class="form-control mb-2 mr-sm-2" name="author" id="author" placeholder="이름을 입력해주세요"></textarea>
+                </div>
+                <div class="modal-body">
+                    <textarea class="field" placeholder="내용을 입력해주세요" name="contents" id="contents" cols="30"
+                              rows="10"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" onclick = "writePost()">작성하기</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cards-box">
+
+    </div>
+</div>
+</body>
+
+</html>
