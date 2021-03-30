@@ -1,6 +1,5 @@
 package wanjongth.loginblog.model;
 
-import com.sun.istack.Pool;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,7 +21,7 @@ public class Post extends Timestamped{ // 생성, 수정 시간을 자동으로 
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String author;
 
     @Column(nullable = false)
@@ -32,7 +31,7 @@ public class Post extends Timestamped{ // 생성, 수정 시간을 자동으로 
     public Post(PostRequestDto requestDto ,UserDetailsImpl userDetails) {
         this.title = requestDto.getTitle();
         this.contents = requestDto.getContents();
-        this.author = userDetails.getUsername();
+        this.author = userDetails.getUsername(); //UserDetailsImpl에 현재 로그인한 유저의 username을 받아온다. -> 컨트롤러로 넘김
     }
 
     // 업데이트 생성자

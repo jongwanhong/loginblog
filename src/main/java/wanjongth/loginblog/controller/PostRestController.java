@@ -21,9 +21,9 @@ public class PostRestController {
     // 생성
     @PostMapping("/api/posts")
     public Post createPost(@RequestBody PostRequestDto requestDto ,@AuthenticationPrincipal UserDetailsImpl userDetails) {
-        Post post = new Post(requestDto, userDetails);
-        postRepository.save(post);
-        return post;
+        Post post = new Post(requestDto, userDetails); // -> 사용자 입력, 로그인한 유저의 아이디를 사용하기 위해 매개변수 설정
+        return postRepository.save(post);
+//        return post;
     }
 
     // 목록 조회
