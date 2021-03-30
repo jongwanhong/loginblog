@@ -19,18 +19,11 @@ public class Post extends Timestamped{ // 생성, 수정 시간을 자동으로 
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String author;
 
     @Column(nullable = false)
     private String contents;
-
-    // 생성자
-    public Post(String title, String author, String contents) {
-        this.title = title;
-        this.author = author;
-        this.contents = contents;
-    }
 
     // 클라이언트에서 작성한 내용 담고다니는 생성자
     public Post(PostRequestDto requestDto) {

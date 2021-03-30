@@ -23,15 +23,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 // 로그인 없이도 메인 페이지로 이동은 가능
                 .antMatchers("/").permitAll()
-                .antMatchers("/api/posts").permitAll()
+                .antMatchers("/api/**").permitAll()
                 // image 폴더를 login 없이 허용
                 .antMatchers("/images/**").permitAll()
                 // css 폴더를 login 없이 허용
                 .antMatchers("/css/**").permitAll()
                 // js 를 login 없이 허용
-                .antMatchers("/basic.js").permitAll()
+                .antMatchers("/js/**").permitAll()
                 // user 관련
                 .antMatchers("/user/**").permitAll()
+                // detail
+                .antMatchers("/detail/**").permitAll()
                 // h2
                 .antMatchers("/h2-console/**").permitAll()
                 // 그 외 모든 요청은 인증과정 필요
