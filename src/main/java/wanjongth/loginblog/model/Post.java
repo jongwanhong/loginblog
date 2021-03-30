@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @NoArgsConstructor // 기본 생성자 생성
 @Getter
-@Entity//꼭 ㅜㅜ 넣어주자 - 테이블과 연계됨을 스프링에게 알려줌
+@Entity
 public class Post extends Timestamped{ // 생성, 수정 시간을 자동으로 만듦
     // 변수 선언
     // ID 자동 생성 및 증

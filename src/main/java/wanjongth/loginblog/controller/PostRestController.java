@@ -31,6 +31,14 @@ public class PostRestController {
         return postRepository.findAll();
     }
 
+    // 특정 게시물 조회
+    @GetMapping("/api/detail/{id}")
+    public Post getDetail(@PathVariable Long id) {
+        return postRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("null")
+        );
+    }
+
     // update
     @PutMapping("/api/posts/{id}")
     public Long updatePost(@PathVariable Long id, @RequestBody PostRequestDto requestDto) {
