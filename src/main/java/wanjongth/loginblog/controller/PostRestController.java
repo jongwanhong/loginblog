@@ -1,10 +1,12 @@
 package wanjongth.loginblog.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import wanjongth.loginblog.dto.PostRequestDto;
 import wanjongth.loginblog.model.Post;
 import wanjongth.loginblog.repository.PostRepository;
+import wanjongth.loginblog.security.UserDetailsImpl;
 import wanjongth.loginblog.service.PostService;
 
 import java.util.List;
@@ -18,8 +20,8 @@ public class PostRestController {
 
     // 생성
     @PostMapping("/api/posts")
-    public Post createPost(@RequestBody PostRequestDto requestDto) {
-        Post post = new Post(requestDto);
+    public Post createPost(@RequestBody PostRequestDto requestDto ,@AuthenticationPrincipal UserDetailsImpl userDetails) {
+        Post post = new Post(requestDto, userDetails);
         postRepository.save(post);
         return post;
     }

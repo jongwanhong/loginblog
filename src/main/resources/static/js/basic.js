@@ -42,10 +42,10 @@ function getMessages() {
                 let post = response[i];
                 let id = post.id;
                 let title = post.title;
-                let username = post.username;
+                let author = post.author;
                 let contents = post.contents;
                 let modifiedAt = post.modifiedAt;
-                addHTML(id, title, username, contents, modifiedAt)
+                addHTML(id, title, author, contents, modifiedAt)
             }
         }
 
@@ -53,13 +53,13 @@ function getMessages() {
 }
 
 // 메모 하나를 HTML로 만들어서 body 태그 내 원하는 곳에 붙입니다.
-function addHTML(id, title, username, contents, modifiedAt) {
+function addHTML(id, title, author, contents, modifiedAt) {
     // 1. HTML 태그를 만듭니다.
     let tempHtml = `<div class="card">
                         <!-- date/username 영역 -->
                         <div class="metadata">
                             <div id="${id}-author" class="author">
-                                ${username}
+                                ${author}
                             </div>
                             <div class="date">
                                 ${modifiedAt}
@@ -85,9 +85,9 @@ function writePost() {
     if (isValidTitle(title) == false) {
         return;
     }
-    let username = $('.cur_username').text()
+    let author = $('#author').text()
     // 4. 전달할 data JSON으로 만듭니다.
-    let data = {'title': title, 'username':username, 'contents': contents};
+    let data = {'title': title, 'author': author, 'contents': contents};
     // 5. POST /api/memos 에 data를 전달합니다.
     $.ajax({
         type: "POST",

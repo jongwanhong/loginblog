@@ -1,8 +1,11 @@
 package wanjongth.loginblog.model;
 
+import com.sun.istack.Pool;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
 import wanjongth.loginblog.dto.PostRequestDto;
+import wanjongth.loginblog.security.UserDetailsImpl;
 
 import javax.persistence.*;
 
@@ -26,10 +29,10 @@ public class Post extends Timestamped{ // 생성, 수정 시간을 자동으로 
     private String contents;
 
     // 클라이언트에서 작성한 내용 담고다니는 생성자
-    public Post(PostRequestDto requestDto) {
+    public Post(PostRequestDto requestDto ,UserDetailsImpl userDetails) {
         this.title = requestDto.getTitle();
-        this.author = requestDto.getAuthor();
         this.contents = requestDto.getContents();
+        this.author = userDetails.getUsername();
     }
 
     // 업데이트 생성자
