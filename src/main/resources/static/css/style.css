@@ -57,12 +57,19 @@ img {
     color: #ffffff;
 }
 
+.header h4 {
+    float:left;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #ffffff;
+}
+
 .header .btn {
     float:right;
 }
 
+
 textarea.field {
-    width: 466px !important;
+    width: 466px;
     height: 146px;
     border-radius: 5px;
     background-color: #ffffff;
@@ -86,17 +93,17 @@ textarea.field::placeholder {
 }
 
 .card {
-    top: 100px;
+    top: 50px;
     /*display: flex;*/
     /*justify-content: center;*/
     width: 100%;
     border-radius: 5px;
     background-color: #ffffff;
     margin: 30px 0;
-    flex:1;
+    flex-grow:1;
 }
 
-.metadata {
+.card .metadata {
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -112,30 +119,30 @@ textarea.field::placeholder {
     padding: 10px 23px;
 }
 
-.metadata .author {
+.card .metadata .author {
     text-align: right;
 }
-.metadata .date {
+.card .metadata .date {
     margin-left:20px;
     text-align: right;
 }
-.title{
+.card .title{
     margin-left: 20px;
     font-family: 'Spoqa Han Sans';
     color: #adb5bd;
 }
 
-.contents {
+.card .contents {
     padding: 0px 23px;
     word-wrap: break-word;
     word-break: break-all;
 }
 
-.contents div.edit {
+.card .contents div.edit {
     display: none;
 }
 
-.contents textarea.te-edit {
+.card .contents textarea.te-edit {
     border-right: none;
     border-top: none;
     border-left: none;
@@ -145,15 +152,15 @@ textarea.field::placeholder {
     font-family: 'Spoqa Han Sans';
 }
 
-.footer {
+.card .footer {
     position: relative;
     height: 40px;
 }
-.footer .title {
+.card .footer .title {
     margin-left: 100px;
 }
 
-.footer img.icon-start-edit {
+.card .footer img.icon-start-edit {
     cursor: pointer;
     position: absolute;
     bottom: 14px;
@@ -162,7 +169,7 @@ textarea.field::placeholder {
     height: 18px;
 }
 
-.footer img.icon-end-edit {
+.card .footer img.icon-end-edit {
     cursor: pointer;
     position: absolute;
     display: none;
@@ -172,7 +179,7 @@ textarea.field::placeholder {
     height: 15px;
 }
 
-.footer img.icon-delete {
+.card .footer img.icon-delete {
     cursor: pointer;
     position: absolute;
     bottom: 12px;

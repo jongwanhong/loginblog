@@ -36,8 +36,8 @@ img {
 
 .card {
     top: 50px;
-    display: flex;
-    justify-content: center;
+    /*display: flex;*/
+    /*justify-content: center;*/
     width: 100%;
     border-radius: 5px;
     background-color: #ffffff;
