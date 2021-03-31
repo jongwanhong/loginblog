@@ -46,7 +46,7 @@ function backHome() {
 }
 
 function getDetail(id) {
-    $('.content_container').empty();
+    // $('.content_container').empty();
     let idx = id
     $.ajax({
         type: 'GET',
@@ -58,21 +58,22 @@ function getDetail(id) {
 }
 
 function addDetail(id, author, title, contents, modifiedAt) {
-    let tempHtml = `<div class ="detail">
-    <div class="content-header">
-          <h1 class="title">${title}</h1>
-          <p class="post-author">
-            <span class="author">${author}</span> <span class="post-date">| ${modifiedAt}</span>
-          </p>
-          <hr />
-        </div>
-        <div class="content-body">
-          <p class="contents">
-            ${contents}
-          </p>
+    let tempHtml = `<div id="cards-box">
+        <div class ="card">
+            <div class="card-body">
+                <h2 class="title">${title}</h2>
+                <p class="post-author metadata">
+                    <span class="author">${author}</span> <span class="date">${modifiedAt}</span>
+                </p>
+            </div>
+            <div class="card-text">
+                <p class="contents">
+                    ${contents}
+                </p>
+            </div>
         </div>
     </div>`
-    $('.content_container').append(tempHtml)
+    $('#cards-box').append(tempHtml)
 }
 
 function showHide() {

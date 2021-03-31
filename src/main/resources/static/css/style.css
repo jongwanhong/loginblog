@@ -86,17 +86,17 @@ textarea.field::placeholder {
 }
 
 .card {
-    top: 50px;
+    top: 100px;
     /*display: flex;*/
     /*justify-content: center;*/
     width: 100%;
     border-radius: 5px;
     background-color: #ffffff;
     margin: 30px 0;
-    flex-grow:1;
+    flex:1;
 }
 
-.card .metadata {
+.metadata {
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -112,14 +112,14 @@ textarea.field::placeholder {
     padding: 10px 23px;
 }
 
-.card .metadata .author {
+.metadata .author {
     text-align: right;
 }
-.card .metadata .date {
+.metadata .date {
     margin-left:20px;
     text-align: right;
 }
-.card .title{
+.title{
     margin-left: 20px;
     font-family: 'Spoqa Han Sans';
     color: #adb5bd;

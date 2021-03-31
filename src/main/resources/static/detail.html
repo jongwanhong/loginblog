@@ -8,6 +8,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
@@ -30,46 +32,25 @@
         <h2>
             조회 페이지
         </h2>
-    <a id="home-text" href="/">
+    <a id="home-text" href="/" class = "btn btn-outline-warning">
         home
     </a>
     </div>
-    <div class="content_container">
-        <div class="detail_edit">
-            <div class="content-header">
-                <input type="text" class="detail-input" placeholder="수정하실 제목을 적어주세요!"/>
-
-            </div>
-            <div class="content-body">
-            <textarea
-                    cols="30"
-                    rows="10"
-                    class="detail-textarea"
-                    placeholder="수정하실 내용을 적어주세요!"
-            ></textarea>
-            </div>
-            <div class="content-footer">
-                <button class="edit-btn cancel">취소</button>
-                <button class="edit-btn edit" onclick="submitEdit()">수정</button>
-            </div>
-
-            <div class ="detail">
-                <div class="content-header">
-                    <h1 class="title">타이틀</h1>
-                        <span class="username">작성자</span> <span class="post-date">수정일자</span>
+    <div id="cards-box">
+            <div class ="card">
+                <div class="card-body">
+                    <h2 class="title">타이틀</h2>
+                    <p class="post-author metadata">
+                        <span class="author">작성자</span> <span class="date">111100000000</span>
+                    </p>
                 </div>
-                <div class="content-body">
+                <div class="card-text">
                     <p class="contents">
-                        내용
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam blanditiis consectetur consequuntur eius exercitationem facilis iste iure, iusto magnam modi mollitia nemo non officia placeat porro repellendus sunt totam ut?
                     </p>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div id="cards-box">
-
-    </div>
 </div>
 </body>
 </html>

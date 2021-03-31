@@ -48,7 +48,6 @@ function getMessages() {
                 addHTML(id, title, author, contents, modifiedAt)
             }
         }
-
     })
 }
 
