@@ -50,4 +50,22 @@ public class UserController {
         }
         return "redirect:/user/login";
     }
+
+//    @GetMapping("/user/forbidden")
+//    public String forbidden() {
+//        return "forbidden";
+//    }
+
+    @GetMapping("/user/signup/error")
+    public String error(){
+        return "error";
+    }
+
+    @GetMapping("/user/kakao/callback")
+    public String kakaoLogin(String code) {
+        // authorizedCode: 카카오 서버로부터 받은 인가 코드
+        userService.kakaoLogin(code);
+
+        return "redirect:/";
+    }
 }
