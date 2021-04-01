@@ -36,21 +36,20 @@ function getDetail() {
 }
 
 function addDetail(id, author, title, contents, modifiedAt) {
-    let tempHtml = `<div id="cards-box">
-                        <div class ="card">
-                            <div class="card-body">
-                                <h2 id="title" class="title">${title}</h2>
-                                <p class="post-author metadata">
+    let tempHtml = `<div class ="card">
+                        <div class="card-body">
+                            <h2 id="title" class="title">${title}</h2>
+                            <p class="post-author metadata">
                                     <span id = "author" class="author">${author}</span> <span class="date">${modifiedAt}</span>
-                                </p>
-                            </div>
-                            <div class="card-text">
-                                <p id = "contents" class="contents">
-                                    ${contents}
-                                </p>
-                            </div>
-                            <!-- 수정 영역 -->
-                            <div class="contents">
+                            </p>
+                        </div>
+                        <div class="card-text">
+                            <p id = "contents" class="contents">
+                                ${contents}
+                            </p>
+                        </div>
+                        <!-- 수정 영역 -->
+                        <div class="contents">
                             <div id="editarea" class="edit">
                                 <textarea id="textarea" class="te-edit" cols="30" rows="5"></textarea>
                             </div>
@@ -63,8 +62,6 @@ function addDetail(id, author, title, contents, modifiedAt) {
                             <img id="submit" onclick="submitEdit()" class="icon-end-edit" src="images/done.png"
                                  alt="">
                         </div>
-                        </div>
-                
                     </div>`
     $('#cards-box').append(tempHtml)
 }
@@ -139,32 +136,39 @@ function deleteOne() {
 
 //////// comment
 function getComment() {
-    // let id = location.search.split('=')[1]
+    let post_id = location.search.split('=')[1]
     $('#comment-box').empty();
     $.ajax({
         type: 'GET',
-        url: `/api/comments/${id}`,
+        url: `/api/comments/${post_id}`,
         success: function (response) {
-            addComment(response['id'], response['author'], response['contents'], response['modifiedAt'])
+            for (let i = response.length-1; i > -1; i--) {
+                let comment = response[i];
+                let id = comment.id;
+                let post_id = comment.post_id;
+                let author = comment.author;
+                let contents = comment.contents;
+                let modifiedAt = comment.modifiedAt;
+                addComment(id, post_id, author, contents, modifiedAt)
+            }
         }
     })
 }
 
-function addComment(id, author, contents, modifiedAt) {
-    let tempHtml = `<div id="comment-box">
-                        <div class ="card">
-                            <div class="card-body">
-                                <p class="post-author metadata">
-                                    <span id = "commentAuthor" class="author">${author}</span> <span class="date">${modifiedAt}</span>
-                                </p>
-                            </div>
-                            <div class="card-text">
-                                <p id = "commentContents" class="contents">
-                                    ${contents}
-                                </p>
-                            </div>
-                            <!-- 수정 영역 -->
-                            <div class="contents">
+function addComment(id, post_id, author, contents, modifiedAt) {
+    let tempHtml = `<div class ="card">
+                        <div class="card-body">
+                            <p class="post-author metadata">
+                                <span id = "commentAuthor" class="author">${author}</span> <span class="date">${modifiedAt}</span>
+                            </p>
+                        </div>
+                        <div class="card-text">
+                            <p id = "commentContents" class="contents">
+                                ${contents}
+                            </p>
+                        </div>
+                        <!-- 수정 영역 -->
+                        <div class="contents">
                             <div id="commentEditArea" class="edit">
                                 <textarea id="commentTextarea" class="te-edit" cols="30" rows="5"></textarea>
                             </div>
@@ -177,14 +181,13 @@ function addComment(id, author, contents, modifiedAt) {
                             <img id="commentSubmit" onclick="submitEditComment()" class="icon-end-edit" src="images/done.png"
                                  alt="">
                         </div>
-                        </div>
-                
                     </div>`
     $('#comment-box').append(tempHtml)
 }
 
 // 댓글 생성합니다.
 function writeComment() {
+    let post_id = location.search.split('=')[1]
     // 1. 작성한 댓글을 불러옵니다.
     let contents = $('#comment_contents').val();
     // 2. 작성한 댓글이 올바른지 isValidContents 함수를 통해 확인합니다.
@@ -193,7 +196,7 @@ function writeComment() {
     }
     let author = $('#comment_author').text()
     // 4. 전달할 data JSON으로 만듭니다.
-    let data = {'author': author, 'contents': contents};
+    let data = {'author': author, 'contents': contents, 'post_id' : post_id};
     // 5. POST /api/comments 에 data를 전달합니다.
     $.ajax({
         type: "POST",

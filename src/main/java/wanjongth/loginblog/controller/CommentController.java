@@ -8,8 +8,10 @@ import wanjongth.loginblog.model.Comment;
 import wanjongth.loginblog.repository.CommentRepository;
 import wanjongth.loginblog.security.UserDetailsImpl;
 import wanjongth.loginblog.service.CommentService;
+import wanjongth.loginblog.util.CommentSpecs;
 
 import java.util.List;
+
 
 @RequiredArgsConstructor // final로 선언된 멤버 변수 자동으로 생성
 @RestController // JSON으로 데이터 주고받기 선언
@@ -18,6 +20,13 @@ public class CommentController {
     private final CommentService commentService;
     private final CommentRepository commentRepository;
 
+    // 목록 조회
+    @GetMapping("/api/comments/{post_id}")
+    public List<Comment> getComment(@PathVariable Long post_id){
+        return commentRepository.findAll(CommentSpecs.withPost_id(post_id));
+    }
+
+
     // 생성
     @PostMapping("/api/comments")
     public Comment createComment(@RequestBody CommentRequestDto requestDto , @AuthenticationPrincipal UserDetailsImpl userDetails) {
@@ -25,11 +34,6 @@ public class CommentController {
         return commentRepository.save(comment);
     }
 
-    // 목록 조회
-    @GetMapping("/api/comments/{id}")
-    public List<Comment> getcomments() {
-        return commentRepository.findAll();
-    }
 
     // update
     @PutMapping("/api/comments/{id}")

@@ -89,7 +89,37 @@
                     </p>
                 </div>
             </div>
+    </div>
+
+    <div id="comment-box">
+        <div class ="card">
+            <div class="card-body">
+                <p class="post-author metadata">
+                    <span id = "commentAuthor" class="author">작성</span> <span class="date">123131231231</span>
+                </p>
+            </div>
+            <div class="card-text">
+                <p id = "commentContents" class="contents">
+                    댓글내용입니
+                </p>
+            </div>
+            <!-- 수정 영역 -->
+            <div class="contents">
+                <div id="commentEditArea" class="edit">
+                    <textarea id="commentTextarea" class="te-edit" cols="30" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="footer">
+                <img id="commentEdit" onclick="editComment()" class="icon-start-edit" src="images/edit.png"
+                     alt="">
+                <img id="commentDelete" onclick="deleteComment()" class="icon-delete" src="images/delete.png"
+                     alt="">
+                <img id="commentSubmit" onclick="submitEditComment()" class="icon-end-edit" src="images/done.png"
+                     alt="">
+            </div>
         </div>
+다
+    </div>
 </div>
 </body>
 </html>
