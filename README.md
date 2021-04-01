@@ -38,7 +38,8 @@ Spring Boot 기반 CRUD 기능과 로그인 기능이 포함된 나만의 블로
 ![image](https://user-images.githubusercontent.com/53491653/112814264-1379d380-90ba-11eb-892a-7b4df8c1ec00.png)
 
 ### 회원가입 페이지
-![image](https://user-images.githubusercontent.com/53491653/112814292-1c6aa500-90ba-11eb-9a5a-c7b43fdcf283.png)
+![image](https://user-images.githubusercontent.com/53491653/113243816-abf89980-92ee-11eb-88a1-4769749cd47c.png)
+
 
 
 ## 3계층 설계
@@ -57,7 +58,6 @@ Spring Boot 기반 CRUD 기능과 로그인 기능이 포함된 나만의 블로
 모델과 dto, Repository 분할
 * Post : 게시글 테이블 - 제목, 작성자명, 작성 날짜
 * User : 유저 테이블 - 아이디, 패스워드, 이메일, 역할, 카카오아이디
-* UserRole : 권한 - USER, ADMIN
 * Comment : 댓글 테이블 - 작성자명, 작성날짜, 내용
 
 3.2. Repository
