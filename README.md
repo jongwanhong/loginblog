@@ -15,7 +15,7 @@ Spring Boot 기반 CRUD 기능과 로그인 기능이 포함된 나만의 블로
 | 게시글 삭제    | DELETE | /api/posts/{id} | id         |
 | 로그인        | POST   | /api/signin |  |
 | 회원가입       | POST   | /api/signup | List(User) |
-| 댓글 조회      | GET   | /api/comments/{id} | List<Comment>  |  
+| 댓글 조회      | GET   | //api/comments/{post_id}} | List<Comment>  |  
 | 댓글 작성      | POST   | /api/comments |  Comment |
 | 댓글 수정      | PUT    | /api/comments/{id} | id |
 | 댓글 삭제      | DELETE | /api/comments/{id} | id |
