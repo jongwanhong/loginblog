@@ -8,13 +8,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/detail.js"></script>
 
@@ -31,7 +41,7 @@
             조회 페이지
         </h2>
         <p>
-            댓글 버튼을 눌러 댓글을 등록해주세요.<br>
+            댓글작성 버튼을 눌러 댓글을 등록해주세요.<br>
             이쁜말만 부탁드립니다.
         </p>
         <h4>
@@ -41,6 +51,28 @@
         <a id="home-text" href="/" class = "btn btn-outline-warning">
             home
         </a>
+        <!--모달 버튼-->
+        <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#modal-write">
+            댓글작성
+        </button>
+    </div>
+    <!--글쓰기 모달-->
+    <div class="modal fade" id="modal-write" role="dialog" aria-labelledby="introHeader" aria-hidden="true"
+         tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                    <textarea class="field" placeholder="내용을 입력해주세요" name="contents" id="comment_contents" cols="30"
+                              rows="10"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" onclick = "writeComment()">작성하기</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="cards-box">

@@ -87,7 +87,7 @@ function writePost() {
     let author = $('#author').text()
     // 4. 전달할 data JSON으로 만듭니다.
     let data = {'title': title, 'author': author, 'contents': contents};
-    // 5. POST /api/memos 에 data를 전달합니다.
+    // 5. POST /api/posts 에 data를 전달합니다.
     $.ajax({
         type: "POST",
         url: "/api/posts",
