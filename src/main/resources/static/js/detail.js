@@ -113,7 +113,7 @@ function submitEdit() {
     });
 }
 
-// 메모를 삭제합니다.
+// 포스트를 삭제합니다.
 function deleteOne() {
     let id = location.search.split('=')[1]
     let author = $('#author').text()
@@ -159,26 +159,26 @@ function addComment(id, post_id, author, contents, modifiedAt) {
     let tempHtml = `<div class ="card">
                         <div class="card-body">
                             <p class="post-author metadata">
-                                <span id = "commentAuthor" class="author">${author}</span> <span class="date">${modifiedAt}</span>
+                                <span id = "${id}-c_author" class="author">${author}</span> <span class="date">${modifiedAt}</span>
                             </p>
                         </div>
                         <div class="card-text">
-                            <p id = "commentContents" class="contents">
+                            <p id = "${id}-c_contents" class="contents">
                                 ${contents}
                             </p>
                         </div>
                         <!-- 수정 영역 -->
                         <div class="contents">
-                            <div id="commentEditArea" class="edit">
-                                <textarea id="commentTextarea" class="te-edit" cols="30" rows="5"></textarea>
+                            <div id="${id}-c_editArea" class="edit">
+                                <textarea id="${id}-c_textarea" class="te-edit" cols="10" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="footer">
-                            <img id="commentEdit" onclick="editComment()" class="icon-start-edit" src="images/edit.png"
+                            <img id="${id}-c_edit" onclick="editComment()" class="icon-start-edit" src="images/edit.png"
                                  alt="">
-                            <img id="commentDelete" onclick="deleteComment()" class="icon-delete" src="images/delete.png"
+                            <img id="${id}-c_delete" onclick="deleteComment()" class="icon-delete" src="images/delete.png"
                                  alt="">
-                            <img id="commentSubmit" onclick="submitEditComment()" class="icon-end-edit" src="images/done.png"
+                            <img id="${id}-c_submit" onclick="submitEditComment()" class="icon-end-edit" src="images/done.png"
                                  alt="">
                         </div>
                     </div>`
@@ -210,28 +210,26 @@ function writeComment() {
     });
 }
 
-function editComment() {
-    showEdits();
+function editComment(id) {
+    showComment();
     let contents = $(`.contents`).text().trim();
-    $(`#commentTextarea`).val(contents);
+    $(`#${id}-c_contents`).val(contents).trim();
 }
 
-function showComment() {
-    $(`#commentEditArea`).show();
-    $(`#commentSubmit`).show();
-    $(`#commentDelete`).show();
+function showComment(id) {
+    $(`#${id}-c_editArea`).show();
+    $(`#${id}-c_submit`).show();
+    $(`#${id}-c_delete`).show();
 
-    $(`#commentContents`).hide();
-    $(`#commentEdit`).hide();
+    $(`#${id}-c_contents`).hide();
+    $(`#${id}-c_edit`).hide();
 }
 
-// // 포스트를 수정합니다.
-function submitEditComment() {
-    // 게시물 번호를 가져옵니다
-    // let id = location.search.split('=')[1]
-    // 제목, 내용, 작성자를 가져옵니다.
-    let contents = $(`#commentTextarea`).val().trim();
-    let author = $(`#commentAuthor`).text();
+// 댓글을 수정합니다.
+function submitEditComment(id) {
+    // 내용, 작성자를 가져옵니다.
+    let contents = $(`#${id}-c_textarea`).val().trim();
+    let author = $(`#${id}-c_author`).text().trim();
     // author 와 현재 유저네임이 같은지 확인합니다.
     let cur_username = $('#username').text();
     if (cur_username != author) {
@@ -246,7 +244,7 @@ function submitEditComment() {
     let data = {'author': author, 'contents': contents};
     $.ajax({
         type: "PUT",
-        url: `/api/posts/${id}`,
+        url: `/api/comments/${id}`,
         contentType: "application/json",
         data: JSON.stringify(data),
         success: function (response) {
@@ -256,10 +254,10 @@ function submitEditComment() {
     });
 }
 
-function deleteComment() {
+function deleteComment(id) {
     // let id = location.search.split('=')[1]
-    let author = $('#commentAuthor').text()
-    let cur_username = $('#username').text()
+    let author = $(`#${id}-c_author`).text().trim();
+    let cur_username = $('#username').text().trim();
 
     if (cur_username != author) {
         alert("자신이 작성한 댓글만 삭제가 가능합니다")
@@ -268,7 +266,7 @@ function deleteComment() {
 
     $.ajax({
         type: "DELETE",
-        url: `/api/posts/${id}`,
+        url: `/api/comments/${id}`,
         success: function (response) {
             alert('댓글 삭제에 성공하였습니다.');
             window.location.href = "/";
