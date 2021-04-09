@@ -9,12 +9,12 @@ Spring Boot 기반 CRUD 기능과 로그인 기능이 포함된 나만의 블로
 | 기능             | Method | URL                     | 반환          |
 | ---------------- | ------ | ----------------------- | ------------- |
 | 전체 게시글 조회 | GET    | /api/posts              | List<Post>    |
-| 특정 게시글 조회 | GET    | /api/detail/{id}        |               |
+| 특정 게시글 조회 | GET    | /api/detail/{id}        |  Post   |
 | 게시글 작성      | POST   | /api/posts              | Post          |
 | 게시글 수정      | PUT    | /api/posts/{id}         | id            |
 | 게시글 삭제      | DELETE | /api/posts/{id}         | id            |
-| 로그인           | POST   | /api/signin             |               |
-| 회원가입         | POST   | /api/signup             | List(User)    |
+| 로그인           | POST   | /user/login             |               |
+| 회원가입         | POST   | /user/signup             | List(User)    |
 | 댓글 조회        | GET    | /api/comments/{post_id} | List<Comment> |
 | 댓글 작성        | POST   | /api/comments           | Comment       |
 | 댓글 수정        | PUT    | /api/comments/{id}      | id            |
@@ -110,9 +110,8 @@ Spring Boot 기반 CRUD 기능과 로그인 기능이 포함된 나만의 블로
 
 ## 추가해야 할 것
 
-* 프론트 - 댓글 수정, 삭제
 * 프론트 - show & hide
-* 회원가입 페이지 - 닉네임, 비밀번호, 비밀전호 확인 조건 반영
+* 회원가입 페이지 - 닉네임, 비밀번호, 비밀번호 확인 조건 반영
 * 로그인 페이지 - 로그인 에러 메시지 띄우기
 * 로그인 하지 않은 사용자가 로그인 필요한 경로에 접속한 경우 메시지 띄우기
 * 로그인 한 사용자가 로그인,회원가입 페이지 접속한 경우 메시지 띄우기

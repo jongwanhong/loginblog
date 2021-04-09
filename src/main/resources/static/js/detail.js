@@ -116,8 +116,8 @@ function submitEdit() {
 // 포스트를 삭제합니다.
 function deleteOne() {
     let id = location.search.split('=')[1]
-    let author = $('#author').text()
-    let cur_username = $('#username').text()
+    let author = $(`#author`).text()
+    let cur_username = $(`#username`).text()
 
     if (cur_username != author) {
         alert("자신이 작성한 글만 삭제가 가능합니다")
@@ -174,11 +174,11 @@ function addComment(id, post_id, author, contents, modifiedAt) {
                             </div>
                         </div>
                         <div class="footer">
-                            <img id="${id}-c_edit" onclick="editComment()" class="icon-start-edit" src="images/edit.png"
+                            <img id="${id}-c_edit" onclick="editComment(${id})" class="icon-start-edit" src="images/edit.png"
                                  alt="">
-                            <img id="${id}-c_delete" onclick="deleteComment()" class="icon-delete" src="images/delete.png"
+                            <img id="${id}-c_delete" onclick="deleteComment(${id})" class="icon-delete" src="images/delete.png"
                                  alt="">
-                            <img id="${id}-c_submit" onclick="submitEditComment()" class="icon-end-edit" src="images/done.png"
+                            <img id="${id}-c_submit" onclick="submitEditComment(${id})" class="icon-end-edit" src="images/done.png"
                                  alt="">
                         </div>
                     </div>`
@@ -211,9 +211,9 @@ function writeComment() {
 }
 
 function editComment(id) {
-    showComment();
-    let contents = $(`.contents`).text().trim();
-    $(`#${id}-c_contents`).val(contents).trim();
+    showComment(`${id}`);
+    let contents = $(`#${id}-c_contents`).text().trim();
+    $(`#${id}-c_textarea`).val(contents)
 }
 
 function showComment(id) {
@@ -227,13 +227,15 @@ function showComment(id) {
 
 // 댓글을 수정합니다.
 function submitEditComment(id) {
+    let post_id = location.search.split('=')[1]
     // 내용, 작성자를 가져옵니다.
     let contents = $(`#${id}-c_textarea`).val().trim();
     let author = $(`#${id}-c_author`).text().trim();
     // author 와 현재 유저네임이 같은지 확인합니다.
-    let cur_username = $('#username').text();
+    let cur_username = $('#username').text().trim();
+
     if (cur_username != author) {
-        alert("자신이 작성한 글만 수정이 가능합니다")
+        alert("자신이 작성한 댓글만 수정이 가능합니다")
         return;
     }
     // 작성한 포스트가 올바른지 isValidContents 함수를 통해 확인합니다.
@@ -241,7 +243,7 @@ function submitEditComment(id) {
         return;
     }
     // 전달할 data JSON으로 만듭니다.
-    let data = {'author': author, 'contents': contents};
+    let data = {'author': author, 'contents': contents, 'post_id': post_id};
     $.ajax({
         type: "PUT",
         url: `/api/comments/${id}`,
@@ -255,7 +257,6 @@ function submitEditComment(id) {
 }
 
 function deleteComment(id) {
-    // let id = location.search.split('=')[1]
     let author = $(`#${id}-c_author`).text().trim();
     let cur_username = $('#username').text().trim();
 
