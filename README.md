@@ -106,14 +106,10 @@ Spring Boot 기반 CRUD 기능과 로그인 기능이 포함된 나만의 블로
 ![image](https://user-images.githubusercontent.com/53491653/113321366-7c797980-934e-11eb-8bcc-9e84d5b7cb69.png)
 
 ### 회원가입 페이지
-![image](https://user-images.githubusercontent.com/53491653/113321405-8602e180-934e-11eb-8840-c5c4ac729e79.png)
+![image](https://user-images.githubusercontent.com/53491653/114260586-d6de9e00-9a10-11eb-96a3-f2a8d7e651cf.png)
 
-## 추가해야 할 것
+## todo list
 
 * 프론트 - show & hide
-* 회원가입 페이지 - 닉네임, 비밀번호, 비밀번호 확인 조건 반영
-* 로그인 페이지 - 로그인 에러 메시지 띄우기
-* 로그인 하지 않은 사용자가 로그인 필요한 경로에 접속한 경우 메시지 띄우기
-* 로그인 한 사용자가 로그인,회원가입 페이지 접속한 경우 메시지 띄우기
 * 삭제 시 삭제 확인 메시지 띄우기
 * 테스트 코드 작성
