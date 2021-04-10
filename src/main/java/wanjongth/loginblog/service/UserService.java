@@ -13,6 +13,7 @@ import wanjongth.loginblog.repository.UserRepository;
 import wanjongth.loginblog.security.UserDetailsImpl;
 import wanjongth.loginblog.security.kakao.KakaoOAuth2;
 import wanjongth.loginblog.security.kakao.KakaoUserInfo;
+import wanjongth.loginblog.util.Validator;
 
 import java.util.Optional;
 
@@ -35,12 +36,41 @@ public class UserService {
         // 회원 ID 중복 확인
         Optional<User> found = userRepository.findByUsername(username);
         if (found.isPresent()) {
-            throw new IllegalArgumentException("중복된 사용자 ID 가 존재합니다.");
+            throw new IllegalArgumentException("duplicate");
         }
 
-        // 패스워드 인코딩
-        String password = passwordEncoder.encode(requestDto.getPassword());
+//        // ID 정규식 검사
+//        if(!Validator.idValid(username)){
+//            throw new IllegalArgumentException("idValid");
+//        }
+
+        // pw
+        String password = requestDto.getPassword();
+        String password_check = requestDto.getPassword_check();
+
+        //pw 정규식 검사
+        if(!Validator.pwValid(username, password)){
+            throw new IllegalArgumentException("pwValid");
+        }
+
+        //비밀번호 재입력 일치 검사
+        if (!password.equals(password_check)) {
+            throw new IllegalArgumentException("notequal");
+        }
+        //모든조건 충족시 비밀번호 암호화
+        password = passwordEncoder.encode(requestDto.getPassword());
+
+        //Email
         String email = requestDto.getEmail();
+        if (!Validator.emailValid(email)){
+            throw new IllegalArgumentException("emailValid");
+        }
+        //중복검사
+        Optional<User> found2 = userRepository.findByEmail(email);
+        if (found2.isPresent()) {
+            throw new IllegalArgumentException("Emailduplicate");
+        }
+
 
         User user = new User(username, password, email);
         userRepository.save(user);

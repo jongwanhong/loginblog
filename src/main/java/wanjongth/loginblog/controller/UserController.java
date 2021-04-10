@@ -50,14 +50,10 @@ public class UserController {
         return "redirect:/user/login";
     }
 
-//    @GetMapping("/user/forbidden")
-//    public String forbidden() {
-//        return "forbidden";
-//    }
-
     @GetMapping("/user/signup/error")
-    public String error(){
-        return "error";
+    public String signupError(Model model) {
+        model.addAttribute("signupError", true);
+        return "signup";
     }
 
     @GetMapping("/user/kakao/callback")

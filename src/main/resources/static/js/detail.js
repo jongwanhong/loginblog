@@ -270,7 +270,7 @@ function deleteComment(id) {
         url: `/api/comments/${id}`,
         success: function (response) {
             alert('댓글 삭제에 성공하였습니다.');
-            window.location.href = "/";
+            window.location.reload();
         }
     })
 }

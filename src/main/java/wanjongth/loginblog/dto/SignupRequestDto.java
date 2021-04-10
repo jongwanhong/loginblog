@@ -8,6 +8,6 @@ import lombok.Setter;
 public class SignupRequestDto {
     private String username;
     private String password;
-//    priavte String pass_check;
+    private String password_check;
     private String email;
 }

@@ -10,33 +10,70 @@
     <link rel="stylesheet" type="text/css" href="/css/sign.css">
     <meta charset="UTF-8">
     <title>회원가입 페이지</title>
-<!--    <script>-->
-<!--        function alert_signup(){-->
-<!--            alert('회원가입이 성공하였습니다.');-->
-<!--        }-->
-<!--    </script>-->
 </head>
 <body>
 <div id="login-form">
     <div id="login-title">Sign up Spring blog</div>
 
+
+
     <form action="/user/signup" method="post">
-        <div class="login-id-label">Username</div>
+        <div class="login-id-label">Id</div>
         <input type="text" name="username" placeholder="Username" class="login-input-box">
+        <div
+                th:if="${message}=='duplicate'"
+                class="alert alert-danger"
+                role="alert"
+        >
+            이미 가입된 아이디 입니다.
+        </div>
 
-        <div class="login-id-label">Password</div>
+        <div
+                th:if="${message}=='idValid'"
+                class="alert alert-danger"
+                role="alert"
+        >
+            아이디 형식이 잘못 되었습니다.
+        </div>
+
+        <div class="login-id-label">8~20자리 영문 및 숫자 비밀번호</div>
         <input type="password" name="password" class="login-input-box">
+        <div
+                th:if="${message}=='pwValid'"
+                class="alert alert-danger"
+                role="alert"
+        >
+            비밀번호 형식이 잘못 되었습니다.
+        </div>
 
-<!--        <div class="login-id-label">Pw Check</div>-->
-<!--        <input type="password" name="password" class="login-input-box">-->
+        <div class="login-id-label">비밀번호 확인</div>
+        <input type="password" name="password_check" class="login-input-box">
+        <div
+                th:if="${message}=='notequal'"
+                class="alert alert-danger"
+                role="alert"
+        >
+            비밀번호가 일치하지 않습니다.
+        </div>
 
         <div class="login-id-label">E-mail</div>
         <input type="text" name="email" placeholder="E-mail" class="login-input-box">
-
-        <div>
-            <input id="admin-token" type="password" name="adminToken" placeholder="관리자 암호" class="login-input-box" style="display:none">
+        <div
+                th:if="${message}=='Emailduplicate'"
+                class="alert alert-danger"
+                role="alert"
+        >
+            이미 가입된 이메일 입니다.
         </div>
-        <button id="login-id-submit" onclick="alert_signup()">회원 가입</button>
+        <div
+                th:if="${message}=='emailValid'"
+                class="alert alert-danger"
+                role="alert"
+        >
+            이메일 형식이 잘못 되었습니다.
+        </div>
+
+        <button id="login-id-submit">회원 가입</button>
     </form>
 </div>
 </body>
